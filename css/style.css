@@ -47,3 +47,17 @@
 body{
   font-family: 'Helvetica'
 }
+
+a {
+  color: black;
+  -o-transition:.5s ease-in;
+  -ms-transition:.5s ease-in;
+  -moz-transition:.5s ease-in;
+  -webkit-transition:.5s ease-in;
+  /* ...and now for the proper property */
+  transition:.5s ease-in;
+}
+
+a:hover{
+  color: #7F00FF;
+}
