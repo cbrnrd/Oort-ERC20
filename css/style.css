@@ -24,7 +24,7 @@
 }
 
 .bold-header{
-  font-family: 'Helvetica Bold';
+  font-weight: bold;
 }
 
 .rotate {
@@ -44,8 +44,12 @@
   color: white;
 }
 
-body{
+/*body{
   font-family: 'Helvetica'
+}*/
+
+.nav {
+  margin-top: 5rem;
 }
 
 a {
