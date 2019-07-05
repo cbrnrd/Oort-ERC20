@@ -3976,12 +3976,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x95D34D272ceAC0EFC3622fFC596E8C24bc38B502",
-      "transactionHash": "0xe8c2ed131a2284523e7ceb5b2c4bf7eccbb5fcb94b553fb2f2f437da631dbe6a"
+      "address": "0x56808E54DEf2b8A6747cDA3B01e72D0058987a80",
+      "transactionHash": "0x76f95511fb1608ed0b0b807b0bda60d4d1c0e60f85ebafcb76c33861aae9de4f"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-05T21:16:53.431Z",
+  "updatedAt": "2019-07-05T21:54:43.550Z",
   "devdoc": {
     "methods": {}
   },

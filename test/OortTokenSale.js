@@ -7,7 +7,7 @@ contract('OortTokenSale', function(accounts) {
   var admin = accounts[0];
   var buyer = accounts[1];
   var tokenPrice = 1000000000000000; // in wei
-  var tokensAvailable = 1000000000;
+  var tokensAvailable = 1000000000; // 75% of all tokens
   var numberOfTokens;
 
   it('initializes the contract with the correct values', function() {
@@ -82,10 +82,11 @@ contract('OortTokenSale', function(accounts) {
       assert.equal(balance.toNumber(), 999999990, 'returns all unsold dapp tokens to admin');
       // Check that the contract has no balance
       balance = web3.eth.getBalance(tokenSaleInstance.address, function(error, result){
-        assert.equal(result.toNumber(), 0, 'resulting address has a balance of 0');
+        assert.equal(result, 0, 'resulting address has a balance of 0');
       });
       
       //assert.equal(balance.toNumber(), 0);
     });
   });
+
 });

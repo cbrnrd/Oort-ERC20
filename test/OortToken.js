@@ -29,6 +29,25 @@ contract('Oort', function(accounts){
       assert.equal(adminBalance.toNumber(), 1000000000, 'it allocates the initial supply to the admin account');
     });
   });
+
+  it ('sets a value and reduces Oort amount by 1', function(){
+    return Oort.deployed().then(function(instance){
+      tokenInstance = instance;
+      tokenInstance.set(accounts[0], 'key', 'value');
+      return tokenInstance.balanceOf(accounts[0]);
+    }).then(function(adminBalance){
+      assert.equal(adminBalance.toNumber(), 1000000000 - 1, 'subtracts 1');
+    });
+  })
+
+  it ('gets a value for a valid tau', function(){
+    return Oort.deployed().then(function(instance){
+      tokenInstance = instance;
+      return tokenInstance.get(accounts[0], 'key');
+    }).then(function(value){
+      assert.equal(value, 'value');
+    });
+  })
   
   /*it('transfers token ownership', function() {
     return Oort.deployed().then(function(instance) {
