@@ -30,17 +30,17 @@ contract('Oort', function(accounts){
     });
   });
 
-  it ('sets a value and reduces Oort amount by 1', function(){
+  it('sets a value and reduces Oort amount by 1', function(){
     return Oort.deployed().then(function(instance){
       tokenInstance = instance;
       tokenInstance.set(accounts[0], 'key', 'value');
       return tokenInstance.balanceOf(accounts[0]);
     }).then(function(adminBalance){
-      assert.equal(adminBalance.toNumber(), 1000000000 - 1, 'subtracts 1 on tau set');
+      assert.equal(adminBalance.toNumber(), 1000000000 - 1, 'subtracts 1 on lambda set');
     });
   })
 
-  it ('gets a value for a valid lambda', function(){
+  it('gets a value for a valid lambda', function(){
     return Oort.deployed().then(function(instance){
       tokenInstance = instance;
       return tokenInstance.get(accounts[0], 'key');
@@ -71,6 +71,8 @@ contract('Oort', function(accounts){
       assert.equal(balance.toNumber(), 250000, 'adds the amount to the receiving account');
       return tokenInstance.balanceOf(accounts[0]);
     }).then(function(balance) {
+      // -1 for setting a value before
+      // -25000 from 3 lines above
       assert.equal(balance.toNumber(), 999749999, 'deducts the amount from the sending account');
     });
   });

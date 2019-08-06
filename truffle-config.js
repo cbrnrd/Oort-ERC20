@@ -18,11 +18,12 @@
  *
  */
 
-// const HDWalletProvider = require('truffle-hdwallet-provider');
-// const infuraKey = "fj4jll3k.....";
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+ const HDWalletProvider = require('truffle-hdwallet-provider');
+ const fs = require('fs');
+
+ const infuraKey = fs.readFileSync("infura.secret").toString().trim();
+
+ const mnemonic = fs.readFileSync("mnemonic.secret").toString().trim();
 
 module.exports = {
   /**
@@ -68,6 +69,14 @@ module.exports = {
       // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     // },
+    ropsten: {
+      provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/bc24173afea441bab0b4f78ff3694387`),
+      network_id: 3,
+      gas: 5500000,
+      confirmations: 0,
+      timeoutBlocks: 100,
+      skipDryRun: false
+    }
 
     // Useful for private networks
     // private: {

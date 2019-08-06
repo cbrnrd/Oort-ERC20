@@ -79,14 +79,11 @@ contract('OortTokenSale', function(accounts) {
     }).then(function(receipt) {
       return tokenInstance.balanceOf(admin);
     }).then(function(balance) {
-      assert.equal(balance.toNumber(), 999999990, 'returns all unsold dapp tokens to admin');
+      assert.equal(balance.toNumber(), 999999990, 'returns all unsold OORT to admin');
       // Check that the contract has no balance
       balance = web3.eth.getBalance(tokenSaleInstance.address, function(error, result){
         assert.equal(result, 0, 'resulting address has a balance of 0');
       });
-      
-      //assert.equal(balance.toNumber(), 0);
     });
   });
-
 });
